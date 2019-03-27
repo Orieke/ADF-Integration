@@ -19,7 +19,8 @@
 						"recursive": true
 					},
 					"sink": {
-						"type": "BlobSink"
+						"type": "BlobSink",
+						"copyBehavior": "PreserveHierarchy"
 					},
 					"enableStaging": false
 				},
