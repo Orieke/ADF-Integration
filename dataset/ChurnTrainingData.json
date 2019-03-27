@@ -1,0 +1,25 @@
+{
+	"name": "ChurnTrainingData",
+	"properties": {
+		"description": "Churn Training Data",
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageConnector",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": true
+			},
+			"fileName": "",
+			"folderPath": "churndata/TrainingData"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
