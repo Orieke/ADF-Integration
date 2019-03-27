@@ -6,6 +6,14 @@
 			{
 				"name": "Blob-ADLS2-Churn",
 				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "FileLoop",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -35,6 +43,17 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "FileLoop",
+				"type": "ForEach",
+				"typeProperties": {
+					"items": {
+						"value": "{\n\"FileName\": \"customer_demographics.csv\"\n}\n{\n\"FileName\": \"customer_transaction.csv\"\n}",
+						"type": "Expression"
+					},
+					"isSequential": true
+				}
 			}
 		]
 	}
