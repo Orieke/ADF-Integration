@@ -1,0 +1,23 @@
+{
+	"name": "ChurnDemographicDataADLS2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "nnannadatalakeLS",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": false
+			},
+			"fileName": "",
+			"folderPath": "churn"
+		}
+	}
+}
