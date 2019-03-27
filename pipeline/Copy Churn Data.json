@@ -18,11 +18,20 @@
 						"type": "BlobSource",
 						"recursive": true
 					},
+					"sink": {
+						"type": "BlobSink"
+					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
-						"referenceName": "ChurnDemographicDataRaw",
+						"referenceName": "ChurnDataRaw",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ChurnDataADLS2",
 						"type": "DatasetReference"
 					}
 				]

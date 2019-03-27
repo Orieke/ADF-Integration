@@ -1,5 +1,5 @@
 {
-	"name": "ChurnDemographicDataRaw",
+	"name": "ChurnDataRaw",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "firsblobstorageLS",
@@ -72,7 +72,7 @@
 				"skipLineCount": 1,
 				"firstRowAsHeader": false
 			},
-			"fileName": "customer_demographics.csv",
+			"fileName": "customer*",
 			"folderPath": "accessbank"
 		}
 	}

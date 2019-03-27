@@ -1,5 +1,5 @@
 {
-	"name": "ChurnDemographicDataADLS2",
+	"name": "ChurnDataADLS2",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "nnannadatalakeLS",
