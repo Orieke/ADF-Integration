@@ -1,0 +1,35 @@
+{
+	"name": "FilePathDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "firsblobstorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"structure": [
+			{
+				"name": "fileno",
+				"type": "String"
+			},
+			{
+				"name": "filename",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"quoteChar": "\"",
+				"nullValue": "\\N",
+				"encodingName": null,
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": true
+			},
+			"fileName": "filedetails.txt",
+			"folderPath": "accessbank"
+		}
+	}
+}
