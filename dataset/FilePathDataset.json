@@ -9,7 +9,7 @@
 		"structure": [
 			{
 				"name": "fileno",
-				"type": "String"
+				"type": "Int32"
 			},
 			{
 				"name": "filename",
