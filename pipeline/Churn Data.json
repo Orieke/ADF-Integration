@@ -1,5 +1,5 @@
 {
-	"name": "Copy Churn Data",
+	"name": "Churn Data",
 	"properties": {
 		"description": "Copy churn data from a blob storage to ADLS gen 2",
 		"activities": [
@@ -40,7 +40,33 @@
 						"value": "@activity('FileNameLookup').output.value",
 						"type": "Expression"
 					},
-					"isSequential": true
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "CopyChurnData",
+							"type": "Copy",
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"typeProperties": {
+								"source": {
+									"type": "BlobSource",
+									"recursive": true
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "ChurnDataRaw",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					]
 				}
 			}
 		],
