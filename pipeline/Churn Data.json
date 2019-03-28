@@ -43,7 +43,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "CopyChurnData",
+							"name": "CopyDataFromBlobToADLS",
 							"type": "Copy",
 							"policy": {
 								"timeout": "7.00:00:00",
@@ -64,14 +64,8 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "ChurnDataRaw",
-									"type": "DatasetReference",
-									"parameters": {
-										"FilePath": {
-											"value": "@item().filename",
-											"type": "Expression"
-										}
-									}
+									"referenceName": "BlobChurnData",
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
