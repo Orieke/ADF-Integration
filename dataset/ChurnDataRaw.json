@@ -5,6 +5,11 @@
 			"referenceName": "firsblobstorageLS",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"FilePath": {
+				"type": "String"
+			}
+		},
 		"type": "AzureBlob",
 		"structure": [
 			{
@@ -28,7 +33,10 @@
 				"skipLineCount": 0,
 				"firstRowAsHeader": true
 			},
-			"fileName": "filedetails.txt",
+			"fileName": {
+				"value": "@FilePath",
+				"type": "Expression"
+			},
 			"folderPath": "accessbank"
 		}
 	}

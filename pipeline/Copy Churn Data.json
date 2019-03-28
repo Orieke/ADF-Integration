@@ -4,39 +4,6 @@
 		"description": "Copy churn data from a blob storage to ADLS gen 2",
 		"activities": [
 			{
-				"name": "Blob-ADLS2-Churn",
-				"type": "Copy",
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"typeProperties": {
-					"source": {
-						"type": "BlobSource",
-						"recursive": true
-					},
-					"sink": {
-						"type": "BlobSink"
-					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "ChurnDataRaw",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "ChurnDataADLS2",
-						"type": "DatasetReference"
-					}
-				]
-			},
-			{
 				"name": "FileNameLookup",
 				"type": "Lookup",
 				"policy": {
@@ -52,9 +19,28 @@
 						"recursive": true
 					},
 					"dataset": {
-						"referenceName": "ChurnDataRaw",
+						"referenceName": "FilePathDataset",
 						"type": "DatasetReference"
 					}
+				}
+			},
+			{
+				"name": "ForEachFileName",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "FileNameLookup",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('FileNameLookup').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true
 				}
 			}
 		],
