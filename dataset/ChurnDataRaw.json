@@ -34,7 +34,7 @@
 				"firstRowAsHeader": true
 			},
 			"fileName": {
-				"value": "@item().filename",
+				"value": "@dataset().FilePath",
 				"type": "Expression"
 			},
 			"folderPath": "accessbank"

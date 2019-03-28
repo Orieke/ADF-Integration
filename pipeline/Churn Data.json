@@ -57,11 +57,27 @@
 									"type": "BlobSource",
 									"recursive": true
 								},
+								"sink": {
+									"type": "BlobSink",
+									"copyBehavior": "PreserveHierarchy"
+								},
 								"enableStaging": false
 							},
 							"inputs": [
 								{
 									"referenceName": "ChurnDataRaw",
+									"type": "DatasetReference",
+									"parameters": {
+										"FilePath": {
+											"value": "@item().filename",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ChurnDataADLS2",
 									"type": "DatasetReference"
 								}
 							]
