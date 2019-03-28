@@ -17,7 +17,7 @@
 				"firstRowAsHeader": false
 			},
 			"fileName": {
-				"value": "@item().filename",
+				"value": "@item().value[1]",
 				"type": "Expression"
 			},
 			"folderPath": "churn"
