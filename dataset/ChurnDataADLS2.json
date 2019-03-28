@@ -16,7 +16,10 @@
 				"skipLineCount": 0,
 				"firstRowAsHeader": false
 			},
-			"fileName": "",
+			"fileName": {
+				"value": "@item().filename",
+				"type": "Expression"
+			},
 			"folderPath": "churn"
 		}
 	}
