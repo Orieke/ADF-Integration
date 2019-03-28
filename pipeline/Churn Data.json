@@ -21,7 +21,8 @@
 					"dataset": {
 						"referenceName": "FilePathDataset",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
