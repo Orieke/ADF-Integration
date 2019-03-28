@@ -9,7 +9,7 @@
 		"structure": [
 			{
 				"name": "fileno",
-				"type": "Int32"
+				"type": "String"
 			},
 			{
 				"name": "filename",
@@ -28,7 +28,7 @@
 				"skipLineCount": 0,
 				"firstRowAsHeader": true
 			},
-			"fileName": "filedetails.txt",
+			"fileName": "filedetails.csv",
 			"folderPath": "accessbank"
 		}
 	}
