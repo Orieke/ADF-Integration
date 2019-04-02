@@ -1,0 +1,13 @@
+{
+	"name": "SQLDBServer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLS",
+			"type": "LinkedServiceReference"
+		},
+		"type": "SqlServerTable",
+		"typeProperties": {
+			"tableName": "[Production].[Product]"
+		}
+	}
+}
