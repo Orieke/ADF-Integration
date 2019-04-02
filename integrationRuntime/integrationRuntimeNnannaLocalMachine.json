@@ -1,0 +1,6 @@
+{
+	"name": "integrationRuntimeNnannaLocalMachine",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
