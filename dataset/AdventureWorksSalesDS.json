@@ -1,0 +1,13 @@
+{
+	"name": "AdventureWorksSalesDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLS",
+			"type": "LinkedServiceReference"
+		},
+		"type": "SqlServerTable",
+		"typeProperties": {
+			"tableName": "[Sales].[SalesOrderHeader]"
+		}
+	}
+}
