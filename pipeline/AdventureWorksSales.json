@@ -1,7 +1,7 @@
 {
-	"name": "AdventureWorksProducts",
+	"name": "AdventureWorksSales",
 	"properties": {
-		"description": "Copy products data from adventure work on prem db to ADLS gen 2",
+		"description": "Copy sales data from adventure work on prem db to ADLS gen 2",
 		"activities": [
 			{
 				"name": "ProductModifiedDateLookup",
