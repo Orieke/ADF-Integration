@@ -23,6 +23,26 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "ForEachDistinctDate",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "ModifiedDateLookup",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('ModifiedDateLookup').output.value",
+						"type": "Expression"
+					},
+					"isSequential": false,
+					"batchCount": 1124
+				}
 			}
 		]
 	}
