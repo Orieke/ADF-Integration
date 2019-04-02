@@ -8,7 +8,8 @@
 		"type": "SqlServerTable",
 		"structure": [
 			{
-				"name": "ModifiedDate"
+				"name": "ModifiedDate",
+				"type": "Date"
 			}
 		]
 	}
