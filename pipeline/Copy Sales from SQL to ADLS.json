@@ -1,3 +1,29 @@
 {
-	"name": "Copy Sales from SQL to ADLS"
+	"name": "Copy Sales from SQL to ADLS",
+	"properties": {
+		"activities": [
+			{
+				"name": "ModifiedDateLookup",
+				"type": "Lookup",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderQuery": "SELECT DISTINCT Convert(date, ModifiedDate) FROM Sales.SalesOrderHeader"
+					},
+					"dataset": {
+						"referenceName": "DistinctSalesDateDS",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		]
+	}
 }
