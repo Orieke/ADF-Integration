@@ -1,0 +1,23 @@
+{
+	"name": "ADLS_Sales_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "customertransactionADLSGEN2_LS",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlobFSFile",
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": false
+			},
+			"fileName": "salesdetails.csv",
+			"folderPath": "sales/@{formatDateTime(item().ModifiedDate, 'yyyy')}/@{formatDateTime(item().ModifiedDate, 'MM')}/@{formatDateTime(item().ModifiedDate, 'dd')}"
+		}
+	}
+}
