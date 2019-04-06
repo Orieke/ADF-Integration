@@ -9,7 +9,7 @@
 		"structure": [
 			{
 				"name": "ModifiedDate",
-				"type": "Date"
+				"type": "String"
 			}
 		]
 	}
