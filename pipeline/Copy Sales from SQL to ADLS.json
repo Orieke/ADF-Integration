@@ -15,7 +15,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlSource",
-						"sqlReaderQuery": "SELECT DISTINCT CONVERT(date, ModifiedDate) AS ModifiedDate FROM Sales.SalesOrderHeader\n"
+						"sqlReaderQuery": "SELECT DISTINCT CONVERT(varchar, ModifiedDate, 23) AS ModifiedDate FROM Sales.SalesOrderHeader\n"
 					},
 					"dataset": {
 						"referenceName": "DistinctSalesDateDS",
