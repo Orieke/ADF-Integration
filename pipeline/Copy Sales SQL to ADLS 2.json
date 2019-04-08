@@ -1,0 +1,83 @@
+{
+	"name": "Copy Sales SQL to ADLS 2",
+	"properties": {
+		"activities": [
+			{
+				"name": "ModifiedDateLookup",
+				"type": "Lookup",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderQuery": "SELECT DISTINCT CONVERT(varchar, ModifiedDate, 23) AS ModifiedDate FROM Sales.SalesOrderHeader\n"
+					},
+					"dataset": {
+						"referenceName": "DistinctSalesDateDS",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "ForEachDistinctDate",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "ModifiedDateLookup",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('ModifiedDateLookup').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "CopySales",
+							"type": "Copy",
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"typeProperties": {
+								"source": {
+									"type": "SqlSource",
+									"sqlReaderQuery": "SELECT * FROM Sales.SalesOrderHeader\nWHERE CONVERT(varchar, ModifiedDate, 23) = \"@{item().ModifiedDate}\""
+								},
+								"sink": {
+									"type": "AzureBlobFSSink"
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "AdventureWorksSalesDS",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ADLS_Sales_DS",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					]
+				}
+			}
+		]
+	}
+}
