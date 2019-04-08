@@ -55,7 +55,7 @@
 							"typeProperties": {
 								"source": {
 									"type": "SqlSource",
-									"sqlReaderQuery": "SELECT * FROM Sales.SalesOrderHeader\nWHERE CONVERT(varchar, ModifiedDate, 23) = \"@{item().ModifiedDate}\""
+									"sqlReaderQuery": "SELECT * FROM Sales.SalesOrderHeader\nWHERE CONVERT(varchar, ModifiedDate, 23) = '@{item().ModifiedDate}'"
 								},
 								"sink": {
 									"type": "AzureBlobFSSink"
