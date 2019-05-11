@@ -1,0 +1,11 @@
+{
+	"name": "AzureDataLakeGen2",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://customertransaction.dfs.core.windows.net",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZTk5BX2MzNzBlYTFkLTAxZjAtNGM4My1hNWRhLWY1N2M1MThhNjY2ZiINCn0="
+		}
+	}
+}

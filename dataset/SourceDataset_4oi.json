@@ -1,0 +1,14 @@
+{
+	"name": "SourceDataset_4oi",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLS",
+			"type": "LinkedServiceReference"
+		},
+		"type": "SqlServerTable",
+		"typeProperties": {
+			"tableName": "[Production].[Product]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
