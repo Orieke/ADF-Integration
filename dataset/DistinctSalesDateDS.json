@@ -1,0 +1,16 @@
+{
+	"name": "DistinctSalesDateDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLS",
+			"type": "LinkedServiceReference"
+		},
+		"type": "SqlServerTable",
+		"structure": [
+			{
+				"name": "ModifiedDate",
+				"type": "String"
+			}
+		]
+	}
+}
